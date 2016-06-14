@@ -59,7 +59,7 @@ hystrix:
 
 turbine:
   instanceUrlSuffix: :8081/management/hystrix.stream
-  #instanceUrlSuffix.demo=:8081/management/hystrix.stream
+#  instanceUrlSuffix.demo: :8081/management/hystrix.stream
   instanceInsertPort: false
   aggregator:
     clusterConfig: demo
@@ -121,3 +121,4 @@ flyway:
 
 application:
    version: ${APP_VERSION}
+   url: https://api.ipify.org/
