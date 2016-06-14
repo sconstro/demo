@@ -53,6 +53,23 @@ spring:
              prefix: metrics.mysystem.${spring.application.name:application}.${random.value:0000}
              key: keys.metrics.mysystem
 
+hystrix:
+   threadpool.default.coreSize: 100
+
+
+turbine:
+  instanceUrlSuffix: :8081/management/hystrix.stream
+  #instanceUrlSuffix.demo=:8081/management/hystrix.stream
+  instanceInsertPort: false
+  aggregator:
+    clusterConfig: demo
+  appConfig: demo
+
+eureka.client.enabled: false
+spring.cloud.consul.port: 8500
+spring.cloud.consul.host: localhost
+
+#eureka.client.enabled: false
 endpoints:
   actuator:
     enabled: true
@@ -94,3 +111,13 @@ endpoints:
     sensitive: false
     enabled: true
 
+
+flyway:
+  locations: db/migration
+  table: flywayhistory
+  baseline-on-migrate: true
+  enabled: true
+
+
+application:
+   version: ${APP_VERSION}

@@ -2,6 +2,7 @@ package ro.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.metrics.CounterService;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +27,11 @@ import java.util.stream.Collectors;
 public class DemoController {
 @Autowired
     CounterService counter;
+    @Autowired
+    StringRedisTemplate template;
     @RequestMapping(value="/hello/{name}", method = RequestMethod.GET)
     public String hello(@PathVariable String name) {
+        template.boundValueOps("aaa").set("bbb");
         counter.increment("histogram.hello1");
         return "Hello " + name;
     }
