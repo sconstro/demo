@@ -52,3 +52,45 @@ spring:
           redis:
              prefix: metrics.mysystem.${spring.application.name:application}.${random.value:0000}
              key: keys.metrics.mysystem
+
+endpoints:
+  actuator:
+    enabled: true
+    sensitive: false
+  configprops:
+    enabled: true
+    sensitive: false
+  autoconfig:
+    enabled: true
+    sensitive: false
+  consul:
+    enabled: true
+    sensitive: false
+  env:
+    enabled: true
+    sensitive: false
+  flyway:
+    enabled: true
+    sensitive: false
+  metrics:
+    enabled: true
+    sensitive: false
+  mappings:
+    enabled: true
+    sensitive: false
+  trace:
+    enabled: true
+    sensitive: false
+  beans:
+    enabled: true
+    sensitive: false
+  health:
+    enabled: true
+    sensitive: false
+  restart:
+    sensitive: false
+    enabled: true
+  shutdown:
+    sensitive: false
+    enabled: true
+
